@@ -1,0 +1,9 @@
+.cardDiv {
+  display: flex;
+  height: "300px";
+  border: 'solid';
+  display: 'block';
+  width: '200px';
+  text-align: 'center';
+  margin: '5% 10%'
+}
