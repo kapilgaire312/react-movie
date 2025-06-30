@@ -21,7 +21,7 @@ function Header({ searchClicked, filterSelected }) {
 
         </div>
 
-        <input value={inputValue} style={{ width: '40%' }} onChange={(e) => { setInputValue(e.target.value); }}></input>
+        <input value={inputValue} style={{ width: '40%' }} onChange={(e) => { setInputValue(e.target.value); }} onKeyDown={() => { if (event.key === 'Enter') { searchClicked(inputValue); setInputValue('') } }}></input>
         <button onClick={() => { searchClicked(inputValue); setInputValue('') }}>Search</button>
 
       </div>

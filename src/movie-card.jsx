@@ -1,9 +1,16 @@
 import './App.css'
-
+import { useNavigate } from 'react-router-dom'
 
 function MovieCard({ movieName, moviePoster, movieId }) {
+  const navigate = useNavigate()
+  function showInfo(e) {
+    e.preventDefault();
+    navigate(`/movie/${movieId}`)
+
+
+  }
   return (
-    <div className='cardDivContainer'>
+    <div className='cardDivContainer' onClick={showInfo}>
 
       <div className="cardDiv" id={movieId}>
         <div className='imgDiv'>

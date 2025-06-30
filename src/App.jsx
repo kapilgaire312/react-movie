@@ -6,8 +6,11 @@ import { useEffect } from 'react'
 import Header from './header'
 import MovieCard from './movie-card'
 
+import { HashRouter, Routes, Route } from 'react-router-dom'
+import MovieInfo from './MovieInfo.jsx'
+
+
 function App() {
-  const [count, setCount] = useState(0)
   const [movie, setMovie] = useState([])
   const [searchedItem, setSearchedItem] = useState('Spiderman')
   const [isLoading, setIsLoading] = useState(false)
@@ -82,32 +85,43 @@ function App() {
 
 
   return (
+    <HashRouter>
+      <Routes>
+        <Route path='/' element={
+          <>
+            <Header searchClicked={search} filterSelected={filterMovie} />
 
-
-    <>
-      <Header searchClicked={search} filterSelected={filterMovie} />
-
-      {isLoading ? <h3>Loading...</h3> : <h3>Showing Results for: {searchedItem} </h3>}
-
-
-
-      <div>
-
-
-        {movie?.map((item, index) => {
-
-          return < MovieCard key={item["#IMDB_ID"]} movieName={item["#TITLE"]} moviePoster={item["#IMG_POSTER"]} movieId={item["#IMDB_ID"]} />
-
-        })}
+            {isLoading ? <h3>Loading...</h3> : <h3>Showing Results for: {searchedItem} </h3>}
 
 
 
-      </div>
+            <div>
+
+
+              {movie?.map((item, index) => {
+
+                return < MovieCard key={item["#IMDB_ID"]} movieName={item["#TITLE"]} moviePoster={item["#IMG_POSTER"]} movieId={item["#IMDB_ID"]} />
+
+              })}
+
+
+
+            </div>
 
 
 
 
-    </>
+          </>
+
+
+        } />
+        <Route path='/movie/:movieId' element={<MovieInfo movies={movie} />} />
+      </Routes>
+
+
+    </HashRouter>
+
+
   )
 }
 
