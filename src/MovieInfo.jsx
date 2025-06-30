@@ -29,7 +29,7 @@ function MovieInfo({ movies }) {
         <Link style={{ color: 'green', textDecoration: 'none' }}> {selectedMovie[0]["#TITLE"]}</Link>
       </p>
       <div style={{ display: 'flex', columnGap: '2%' }}>
-        <div style={{ width: '40%' }}>
+        <div style={{ width: '35%' }}>
           <img src={selectedMovie[0]["#IMG_POSTER"]} alt={selectedMovie[0]["#TITLE"] + '-image'} style={{ width: '100%' }}></img>
 
         </div>
